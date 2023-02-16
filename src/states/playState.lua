@@ -46,11 +46,11 @@ function playState:update(dt)
 
 
   if love.keyboard.wasPressed("escape") then
-    pushState(confirmState, titleScreenState)
+    clearState(titleScreenState)
   end 
   
 
-  if playerMap["collision"][1+math.ceil((-tileOffsetY+1+playerY+100)/64)][1+math.ceil((-tileOffsetX+1+playerX-(playerSpeed*dt))/64)] == 60 then
+  if playerMap["collision"][1+math.ceil((-tileOffsetY+playerY+100)/64)][1+math.ceil((-tileOffsetX+playerX-(playerSpeed*dt))/64)] == 60 then
     --IF MOVING LEFT
     if playerX <= GAME_WIDTH/2 and (mapX > 0 or mapX == 0 and tileOffsetX < 0) then
       if love.keyboard.isDown("a") or love.keyboard.isDown("left") then
@@ -150,5 +150,6 @@ function playState:draw()
   
   --using direction and stage of animation, where the spritesheet is split into 16 different images, 60x100 pixels, animate movement using each row of the sheet
   love.graphics.draw(gTextures["spriteSheet"], gFrames["sprites"][direction*4 + stage], playerX, playerY)
-
+  love.graphics.print(tileOffsetX, 0, 100)
+  love.graphics.print(tileOffsetY, 0, 200)
 end

@@ -58,9 +58,6 @@ anyKeyPressed = 0
 function love.keypressed(key)
     anyKeyPressed = anyKeyPressed + 1
     love.keyboard.keysPressed[key] = true
-    if key == "y" then
-        table.remove(stateStack)
-    end
 end
 
 function love.keyboard.wasPressed(key)

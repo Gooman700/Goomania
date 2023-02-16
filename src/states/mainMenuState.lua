@@ -18,12 +18,12 @@ function mainMenuState:update(dt)
         
         --using if statement as there are only 3 outcomes
         if choice == 1 then
-            pushState(confirmState, loadSaveState)
+            clearState(loadSaveState)
         elseif choice == 2 then
             clearState(loadSaveState)
         else
             changeState(settings)
-        end
+        end 
     end
     
 end

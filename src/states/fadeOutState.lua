@@ -6,7 +6,6 @@ local opacity = 0
 function fadeOutState:enter()
     timer = 0
     opacity = 0
-    print("fadeOut enter")
 end
 
 function fadeOutState:update(dt)

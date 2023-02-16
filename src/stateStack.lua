@@ -1,13 +1,13 @@
 stateStack = {}
 
 function pushState(newState, params)
-    newState:enter(newState)
     table.insert(stateStack, newState)
+    newState:enter(params)
 end
 
 function popState()
-    stateStack[#stateStack]:exit()
-    table.remove(stateStack, #stateStack)--when called without an element specified, removes the last element
+    -- stateStack[#stateStack]:exit()
+    table.remove(stateStack)--when called without an element specified, removes the last element
 end
 
 function changeState(newState)
@@ -16,8 +16,8 @@ function changeState(newState)
 end
 
 function clearState(newState)
-    for i = 1, #stateStack do
-        table.remove(stateStack, i)
+    while #stateStack > 0 do
+        popState()
     end
     pushState(newState)
 end

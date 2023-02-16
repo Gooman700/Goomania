@@ -6,7 +6,6 @@ local opacity = 1
 function fadeInState:enter()
     timer = 0
     opacity = 1
-    print("fadeIn enter")
 end
 function fadeInState:update(dt)
     opacity = math.max(0, opacity - dt)

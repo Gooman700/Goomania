@@ -3,6 +3,7 @@ titleScreenState = {}
 local timer = 0 -- timer for flashing text
 
 function titleScreenState:enter()
+  timer = 0
   gSounds["menuMusic"]:play()
 end
 
@@ -21,7 +22,6 @@ function titleScreenState:update(dt)
   end
 
   if love.keyboard.wasPressed("return") then
-    timer = 0
     love.audio.play(gSounds["select"])
     pushState(mainMenuState)
   end
