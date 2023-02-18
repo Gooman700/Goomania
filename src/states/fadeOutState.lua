@@ -2,18 +2,21 @@ fadeOutState = {}
 local timer = 0
 local timeToFade = 1
 local opacity = 0
+local nextState
 
-function fadeOutState:enter()
+function fadeOutState:enter(state)
+    nextState = state
     timer = 0
     opacity = 0
 end
 
 function fadeOutState:update(dt)
+    print("wassup")
     opacity = math.max(0, opacity + dt)
     timer = timer + dt
 
     if timer > timeToFade then
-        popState()
+        clearState(nextState)
     end
 end
 

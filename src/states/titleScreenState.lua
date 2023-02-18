@@ -9,7 +9,6 @@ end
 
 function titleScreenState:exit()
   love.audio.stop(gSounds["menuMusic"])
-  pushState(fadeOutState)
 end
 
 -- Update the menu state

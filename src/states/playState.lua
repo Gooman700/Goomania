@@ -46,7 +46,7 @@ function playState:update(dt)
 
 
   if love.keyboard.wasPressed("escape") then
-    clearState(titleScreenState)
+    pushState(confirmState, {titleScreenState})
   end 
   
 

@@ -1,17 +1,19 @@
 confirmState = {}
-local nextState
+local firstState
 local choice = 1
 local text = {"Yes", "No"}
 
 --takes in the state that is to be next pushed if the confirmation is positive
 function confirmState:enter(params)
     choice = 1
-    nextState = params
-    print("confirm enter")
+    firstState = params[1]
+    secondState = params[2]
 end
 function confirmState:exit()
-    if choice == 1 then
-        pushState(nextState)
+    if love.keyboard.wasPressed("return") then
+        if choice == 1 then
+            pushState(firstState, secondState)
+        end
     end
 end
 
