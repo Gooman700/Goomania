@@ -2,6 +2,7 @@
 
 Class = require("libraries/class")
 push = require("libraries/push")
+json = require("libraries/json")
 
 require("src/constants")--all constant values
 
@@ -11,6 +12,7 @@ require("src/stateStack")--the state stack handling functions
 require("src/states/titleScreenState")--self explanitory names
 require("src/states/mainMenuState")
 require("src/states/loadSaveState")
+require("src/states/saveState")
 require("src/states/playState")
 require("src/states/textState")
 require("src/states/pauseState")

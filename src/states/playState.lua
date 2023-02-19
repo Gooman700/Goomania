@@ -1,10 +1,6 @@
 --STATE FOR PLAYER MOVEMENT AND MAP MOVEMENT
 playState = {}
-local tileOffsetX = 0
-local tileOffsetY = 0
 local playerSpeed = 200
-local playerX = GAME_WIDTH / 2
-local playerY = GAME_HEIGHT / 2
 local direction = 1
 local stage = 1
 local timer = 0 -- timer for animations
@@ -46,7 +42,7 @@ function playState:update(dt)
 
 
   if love.keyboard.wasPressed("escape") then
-    pushState(confirmState, {titleScreenState})
+    pushState(confirmState, {fadeOutState, titleScreenState})
   end 
   
 
@@ -134,6 +130,10 @@ function playState:update(dt)
       clearState(titleScreenState)
     end
   end
+  if love.keyboard.wasPressed("j") then
+    pushState(saveState)
+  end
+
   moveMap(mapX, mapY)
 
 end
@@ -150,6 +150,4 @@ function playState:draw()
   
   --using direction and stage of animation, where the spritesheet is split into 16 different images, 60x100 pixels, animate movement using each row of the sheet
   love.graphics.draw(gTextures["spriteSheet"], gFrames["sprites"][direction*4 + stage], playerX, playerY)
-  love.graphics.print(tileOffsetX, 0, 100)
-  love.graphics.print(tileOffsetY, 0, 200)
 end

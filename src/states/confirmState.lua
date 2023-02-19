@@ -11,9 +11,15 @@ function confirmState:enter(params)
 end
 function confirmState:exit()
     if love.keyboard.wasPressed("return") then
+
         if choice == 1 then
-            pushState(firstState, secondState)
+            if secondState then
+                pushState(firstState, secondState)
+            else
+                clearState(firstState)
+            end
         end
+
     end
 end
 

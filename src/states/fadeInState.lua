@@ -1,6 +1,6 @@
 fadeInState = {}
 local timer = 0
-local timeToFade = 1
+local timeToFade = 0.5
 local opacity = 1
 
 function fadeInState:enter()
@@ -8,7 +8,7 @@ function fadeInState:enter()
     opacity = 1
 end
 function fadeInState:update(dt)
-    opacity = math.max(0, opacity - dt)
+    opacity = math.max(0, opacity - (1/timeToFade)*dt)
     timer = timer + dt
 
     if timer > timeToFade then

@@ -16,8 +16,15 @@ playerMap = {
 
 
 function loadSaveState:enter()
-    mapX = 0
-    mapY = 0
+    local playerRawData = love.filesystem.read("gooSave.json")
+    local playerData = json:decode(playerRawData)
+
+    mapX = playerData.mapX
+    mapY = playerData.mapY
+    playerX = playerData.playerX
+    playerY = playerData.playerY
+    tileOffsetX = playerData.tileOffsetX
+    tileOffsetY = playerData.tileOffsetY
 
     moveMap(mapX,mapY)
 

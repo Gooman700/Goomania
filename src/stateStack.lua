@@ -6,7 +6,6 @@ function pushState(newState, params)
 end
 
 function popState()
-    print("pop")
     local previousState = stateStack[#stateStack]
     table.remove(stateStack)--when called without an element specified, removes the last element
     previousState:exit()

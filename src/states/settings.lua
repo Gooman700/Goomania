@@ -7,7 +7,7 @@ function settings:exit()end
 
 function settings:update(dt)
     if love.keyboard.wasPressed("escape") then
-        changeState(mainMenuState)
+        popState()
     end
 
     choice = menuInput(text, choice)

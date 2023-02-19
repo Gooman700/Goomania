@@ -20,7 +20,7 @@ function mainMenuState:update(dt)
         if choice == 1 then
             pushState(confirmState, {fadeOutState, loadSaveState})
         elseif choice == 2 then
-            clearState(loadSaveState)
+            pushState(confirmState, {fadeOutState, loadSaveState})
         else
             pushState(settings)
         end 
