@@ -127,11 +127,8 @@ function playState:update(dt)
   if playerMap["interaction"][1+math.ceil((-tileOffsetY+playerY+1+100)/64)][1+math.ceil((-tileOffsetX+playerX+1)/64)] == 52 or playerMap["interaction"][1+math.ceil((-tileOffsetY+playerY+1+100)/64)][1+math.ceil((-tileOffsetX+playerX+60+1)/64)] == 52 then
     encounterRate = math.random(1,200)
     if encounterRate == 1 then
-      clearState(titleScreenState)
+      pushState(battleMenuState)
     end
-  end
-  if love.keyboard.wasPressed("j") then
-    pushState(saveState)
   end
 
   moveMap(mapX, mapY)

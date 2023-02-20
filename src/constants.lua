@@ -3,6 +3,46 @@ GAME_WIDTH, GAME_HEIGHT = 1920, 1080
 
 TILE_SIZE = 64
 
+--initialise all fonts into this global table which can be called upon using the small/medium/large keys
+gFonts = {
+  ["small"] = love.graphics.newFont("assets/fonts/font.ttf", 8),
+  ["medium"] = love.graphics.newFont("assets/fonts/font.ttf", 16),
+  ["large"] = love.graphics.newFont("assets/fonts/font.ttf", 32)
+}   
+love.graphics.setFont(gFonts["small"])
+
+--initialise the images table to be used
+gTextures = {
+  ["tileSheet"] = love.graphics.newImage("assets/images/maps/tileSheet.png"),
+  ["spriteSheet"] = love.graphics.newImage("assets/images/spriteSheet.png"),
+  ["background"] = love.graphics.newImage("assets/images/background.png"),
+  ["titleText"] = love.graphics.newImage("assets/images/titleText.png"),
+
+  ["sweep"] = love.graphics.newImage("assets/images/sweep.png"),
+  ["empurr"] = love.graphics.newImage("assets/images/empurr.png"),
+  ["scrappy"] = love.graphics.newImage("assets/images/scrappy.png")
+}
+
+--table made up of quads taken from various images in the textures table
+gFrames = {
+  ["tiles"] = generateQuads(gTextures["tileSheet"], 64, 64),
+  ["sprites"] = generateQuads(gTextures["spriteSheet"], 60, 100)
+}
+
+--table with all sounds to be used
+gSounds = {
+  ["menuMusic"] = love.audio.newSource("assets/sounds/menuMusic.mp3","stream"),
+  ["select"] = love.audio.newSource("assets/sounds/select.mp3","static"),
+  ["fieldMusic"] = love.audio.newSource("assets/sounds/fieldMusic.wav","stream")
+}
+
+--default values for a level 1 pokemon of that pokemon, numbers being attack, then defense, then speed.
+defPokemon = {
+  ["sweep"] = {gTextures["sweep"], 15, 5, 7},
+  ["empurr"] = {gTextures["empurr"], 10, 8, 12},
+  ["scrappy"] = {gTextures["scrappy"], 8, 12, 9}
+}
+
 routeOne = {
   ["floor"] = {
     {56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56},
@@ -113,12 +153,7 @@ routeOne = {
     {60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60}
   },
 
-  --default values for a level 1 pokemon of that pokemon, numbers being attack, then defense, then speed.
-  ["defPokemon"] = {
-    ["Sweep"] = {15, 5, 7},
-    ["Empurr"] = {10, 8, 12},
-    ["Scrappy"] = {8, 12, 9}
-  },
+  ["wildPokemon"] = {"sweep", "empurr", "scrappy"},
   
   ["length"] = 91,
   ["height"] = 34

@@ -33,3 +33,8 @@ function moveMap(mapX, mapY)
         end
     end
 end
+
+--simple linear interpolation function to give the rate of change of something when trying to go from one value to another in a given time
+function lerp(start, finish, time)
+    return start + (finish - start) * time
+end

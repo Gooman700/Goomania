@@ -38,7 +38,3 @@ function menuInput(text, choice)
 
     return choice
 end
-
-function slider()
-    
-end
