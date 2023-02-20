@@ -12,6 +12,7 @@ require("src/stateStack")--the state stack handling functions
 require("src/states/titleScreenState")--self explanitory names
 require("src/states/mainMenuState")
 require("src/states/loadSaveState")
+require("src/states/newSaveState")
 require("src/states/saveState")
 require("src/states/playState")
 require("src/states/textState")
@@ -21,6 +22,7 @@ require("src/states/volume")
 require("src/states/confirmState")
 require("src/states/fadeInState")
 require("src/states/fadeOutState")
+require("src/states/battleMenuState")
 
 require("src/gui")--gui elements e.g. text boxes, panels
 

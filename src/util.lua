@@ -27,9 +27,9 @@ end
 function moveMap(mapX, mapY)
     for y = 1, playerMap.height do
         for x = 1, playerMap.length do
-            playerMap["floor"][y][x] = wholeMap["floor"][mapY + y][mapX + x]
-            playerMap["collision"][y][x] = wholeMap["collision"][mapY + y][mapX + x]
-            playerMap["interaction"][y][x] = wholeMap["interaction"][mapY + y][mapX + x]
+            playerMap["floor"][y][x] = routeOne["floor"][mapY + y][mapX + x]
+            playerMap["collision"][y][x] = routeOne["collision"][mapY + y][mapX + x]
+            playerMap["interaction"][y][x] = routeOne["interaction"][mapY + y][mapX + x]
         end
     end
 end

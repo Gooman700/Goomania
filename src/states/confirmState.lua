@@ -8,13 +8,14 @@ function confirmState:enter(params)
     choice = 1
     firstState = params[1]
     secondState = params[2]
+    thirdParam = params[3]
 end
 function confirmState:exit()
     if love.keyboard.wasPressed("return") then
 
         if choice == 1 then
             if secondState then
-                pushState(firstState, secondState)
+                pushState(firstState, {secondState, thirdParam})
             else
                 clearState(firstState)
             end

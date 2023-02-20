@@ -5,7 +5,7 @@ local timer = 0 -- timer for flashing text
 function titleScreenState:enter()
   timer = 0
   gSounds["menuMusic"]:play()
-  pushState(fadeInState)
+  pushState(fadeInState, "b")
 end
 
 function titleScreenState:exit()

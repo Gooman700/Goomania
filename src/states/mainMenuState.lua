@@ -1,7 +1,7 @@
 --STATE TO TAKE IN INPUT AND PUSH THE CORRESPONDING STATE ACCORDINGLY
 mainMenuState = {}
 local choice = 1
-local text = {"New Game", "Load Game", "Settings"}
+local text = {"Load Game", "New Game", "Settings"}
 
 function mainMenuState:enter()end
 function mainMenuState:exit()end
@@ -18,9 +18,9 @@ function mainMenuState:update(dt)
         
         --using if statement as there are only 3 outcomes
         if choice == 1 then
-            pushState(confirmState, {fadeOutState, loadSaveState})
+            pushState(fadeOutState, {loadSaveState, "b"})
         elseif choice == 2 then
-            pushState(confirmState, {fadeOutState, loadSaveState})
+            pushState(confirmState, {fadeOutState, newSaveState, "b"})
         else
             pushState(settings)
         end 

@@ -25,6 +25,11 @@ function loadSaveState:enter()
     playerY = playerData.playerY
     tileOffsetX = playerData.tileOffsetX
     tileOffsetY = playerData.tileOffsetY
+    playerParty = playerData.playerParty
+
+    for i = 1, #playerParty do
+        playerPokemon[i] = playerParty[i]
+    end
 
     moveMap(mapX,mapY)
 

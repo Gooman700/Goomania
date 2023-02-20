@@ -9,7 +9,7 @@ local encounterRate = 0
 function playState:enter()
   gSounds["fieldMusic"]:setLooping(true)
   gSounds["fieldMusic"]:play()
-  pushState(fadeInState)
+  pushState(fadeInState, "b")
 end
 function playState:exit()
   gSounds["fieldMusic"]:stop()
@@ -42,7 +42,7 @@ function playState:update(dt)
 
 
   if love.keyboard.wasPressed("escape") then
-    pushState(confirmState, {fadeOutState, titleScreenState})
+    pushState(confirmState, {fadeOutState, titleScreenState, "b"})
   end 
   
 
@@ -64,7 +64,7 @@ function playState:update(dt)
 
   if playerMap["collision"][1+math.ceil((-tileOffsetY+1+playerY+100)/64)][1+math.ceil((-tileOffsetX+1+playerX+60+(playerSpeed*dt))/64)] == 60 then
     --IF MOVING RIGHT
-    if playerX >= GAME_WIDTH/2 and (mapX < wholeMap.length - playerMap.length or mapX == wholeMap.length - playerMap.length and tileOffsetX > 0) then
+    if playerX >= GAME_WIDTH/2 and (mapX < routeOne.length - playerMap.length or mapX == routeOne.length - playerMap.length and tileOffsetX > 0) then
       if love.keyboard.isDown("d") or love.keyboard.isDown("right") then
         playerX = GAME_WIDTH/2
         direction = 3
@@ -72,7 +72,7 @@ function playState:update(dt)
       end
     else
       if love.keyboard.isDown("d") or love.keyboard.isDown("right") then
-        direction = 3
+        direction = 3 
         playerX = math.min(playerX + playerSpeed*dt, GAME_WIDTH-60)
       end
     end
@@ -96,7 +96,7 @@ function playState:update(dt)
 
   if playerMap["collision"][1+math.ceil((-tileOffsetY+1+playerY+100+(playerSpeed*dt))/64)][1+math.ceil((-tileOffsetX+1+playerX)/64)] == 60 and playerMap["collision"][1+math.ceil((-tileOffsetY+1+playerY+100+(playerSpeed*dt))/64)][1+math.ceil((-tileOffsetX+1+playerX+60)/64)] == 60 then
     --IF MOVING DOWN
-    if playerY >= GAME_HEIGHT/2 and (mapY < wholeMap.height - playerMap.height or mapY == wholeMap.height - playerMap.height and tileOffsetY > 0) then
+    if playerY >= GAME_HEIGHT/2 and (mapY < routeOne.height - playerMap.height or mapY == routeOne.height - playerMap.height and tileOffsetY > 0) then
       if love.keyboard.isDown("s") or love.keyboard.isDown("down") then
         direction = 2
         tileOffsetY = math.floor(tileOffsetY - playerSpeed*dt)
@@ -125,7 +125,7 @@ function playState:update(dt)
   end
 
   if playerMap["interaction"][1+math.ceil((-tileOffsetY+playerY+1+100)/64)][1+math.ceil((-tileOffsetX+playerX+1)/64)] == 52 or playerMap["interaction"][1+math.ceil((-tileOffsetY+playerY+1+100)/64)][1+math.ceil((-tileOffsetX+playerX+60+1)/64)] == 52 then
-    encounterRate = math.random(1,100)
+    encounterRate = math.random(1,200)
     if encounterRate == 1 then
       clearState(titleScreenState)
     end
@@ -150,4 +150,5 @@ function playState:draw()
   
   --using direction and stage of animation, where the spritesheet is split into 16 different images, 60x100 pixels, animate movement using each row of the sheet
   love.graphics.draw(gTextures["spriteSheet"], gFrames["sprites"][direction*4 + stage], playerX, playerY)
+
 end
