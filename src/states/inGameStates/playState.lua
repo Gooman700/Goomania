@@ -17,6 +17,10 @@ end
 
 function playState:update(dt)
 
+  if love.keyboard.wasPressed("tab") then
+    pushState(fieldMenuState)
+  end
+
   --if movement keys are pressed, let the moving animations roll, otherwise keep the sprite static
   if love.keyboard.isDown("w") or love.keyboard.isDown("a") or love.keyboard.isDown("s") or love.keyboard.isDown("d") then
     timer = timer + dt
@@ -39,11 +43,6 @@ function playState:update(dt)
   else
     playerSpeed = 200
   end
-
-
-  if love.keyboard.wasPressed("escape") then
-    pushState(confirmState, {fadeOutState, titleScreenState, "b"})
-  end 
   
 
   if playerMap["collision"][1+math.ceil((-tileOffsetY+playerY+100)/64)][1+math.ceil((-tileOffsetX+playerX-(playerSpeed*dt))/64)] == 60 then

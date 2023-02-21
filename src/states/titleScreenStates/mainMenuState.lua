@@ -25,7 +25,6 @@ function mainMenuState:update(dt)
             pushState(settings)
         end 
     end
-    
 end
 
 

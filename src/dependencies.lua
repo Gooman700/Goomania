@@ -9,20 +9,25 @@ require("src/util")
 require("src/constants")--all constant values
 
 require("src/stateStack")--the state stack handling functions
-require("src/states/titleScreenState")--self explanitory names
-require("src/states/mainMenuState")
-require("src/states/loadSaveState")
-require("src/states/newSaveState")
-require("src/states/saveState")
-require("src/states/playState")
+require("src/states/titleScreenStates/titleScreenState")--self explanitory names
+require("src/states/titleScreenStates/mainMenuState")
+require("src/states/titleScreenStates/loadSaveState")
+require("src/states/titleScreenStates/newSaveState")
+require("src/states/titleScreenStates/volume")
+require("src/states/titleScreenStates/settings")
+
+require("src/states/inGameStates/saveState")
+require("src/states/inGameStates/playState")
+require("src/states/inGameStates/battleMenuState")
+require("src/states/inGameStates/fieldMenuState")
+require("src/states/inGameStates/fieldExitState")
+
+require("src/states/transitionStates/fadeInState")
+require("src/states/transitionStates/fadeOutState")
+require("src/states/transitionStates/slideImageState")
+
 require("src/states/textState")
-require("src/states/pauseState")
-require("src/states/settings")
-require("src/states/volume")
 require("src/states/confirmState")
-require("src/states/fadeInState")
-require("src/states/fadeOutState")
-require("src/states/battleMenuState")
-require("src/states/slideImageState")
+require("src/states/quitState")
 
 require("src/gui")--gui elements e.g. text boxes, panels
