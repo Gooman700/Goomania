@@ -10,6 +10,7 @@ function newSaveState:enter()
     playerData.tileOffsetX = 0
     playerData.tileOffsetY = 0
     playerData.playerParty = {}
+    playerData.inventory = {["Pokeball"] = 5}
 
     local playerRawData = json:encode(playerData)
 

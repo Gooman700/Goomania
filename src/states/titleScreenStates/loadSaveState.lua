@@ -26,6 +26,7 @@ function loadSaveState:enter()
     tileOffsetX = playerData.tileOffsetX
     tileOffsetY = playerData.tileOffsetY
     playerParty = playerData.playerParty
+    inventory = playerData.inventory
 
     for i = 1, #playerParty do
         playerPokemon[i] = playerParty[i]

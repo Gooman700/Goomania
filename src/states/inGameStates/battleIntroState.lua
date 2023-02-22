@@ -1,14 +1,14 @@
 battleIntroState = {}
 local wildPokemon
 
-local panelXY = {0, GAME_HEIGHT}
-local panelFinalXY = {0, 0}
+local panelXY
+local panelFinalXY
 
-local opponentXY = {GAME_WIDTH, 100}
-local opponentFinalXY = {2*(GAME_WIDTH/3), 180}
+local opponentXY
+local opponentFinalXY
 
-local playerXY = {0-400, GAME_HEIGHT-100}
-local playerFinalXY = {GAME_WIDTH/4, GAME_HEIGHT-100-400}
+local playerXY
+local playerFinalXY
 
 local timer
 local timeToComplete
@@ -20,9 +20,20 @@ function battleIntroState:enter()
     --select the wild pokemon as one of the pokemon that can spawn in the current route
     wildPokemon = routeOne["wildPokemon"][math.random(1, #routeOne["wildPokemon"])]
 
+    panelXY = {0, GAME_HEIGHT}
+    panelFinalXY = {0, 0}
+
+    opponentXY = {GAME_WIDTH, 100}
+    opponentFinalXY = {2*(GAME_WIDTH/3), 180}
+
+    playerXY = {0-400, GAME_HEIGHT-100}
+    playerFinalXY = {GAME_WIDTH/4, GAME_HEIGHT-100-400}
 end
 
-function battleIntroState:exit()end
+function battleIntroState:exit()
+    gSounds["battleMusic"]:stop()
+    gSounds["fieldMusic"]:play()
+end
 
 function battleIntroState:update(dt)
     if timer < timeToComplete then
@@ -31,7 +42,8 @@ function battleIntroState:update(dt)
         panelXY = slideImageUpdate(panelXY, panelFinalXY, timer, timeToComplete, dt)
         opponentXY = slideImageUpdate(opponentXY, opponentFinalXY, timer,timeToComplete, dt)
         playerXY = slideImageUpdate(playerXY, playerFinalXY, timer, timeToComplete, dt)
-
+    else
+        popState()
     end
 end
 

@@ -47,7 +47,6 @@ function love.draw()--all the rendering needed for each frame
 
     for i =1, #stateStack do
         love.graphics.setColor(1,1,1,1)
-        love.graphics.print(tostring(stateStack[i]), i,i*40)
     end
 
     push:finish()
