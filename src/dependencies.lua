@@ -18,13 +18,12 @@ require("src/states/titleScreenStates/settings")
 
 require("src/states/inGameStates/saveState")
 require("src/states/inGameStates/playState")
-require("src/states/inGameStates/battleMenuState")
+require("src/states/inGameStates/battleIntroState")
 require("src/states/inGameStates/fieldMenuState")
 require("src/states/inGameStates/fieldExitState")
 
 require("src/states/transitionStates/fadeInState")
 require("src/states/transitionStates/fadeOutState")
-require("src/states/transitionStates/slideImageState")
 
 require("src/states/textState")
 require("src/states/confirmState")

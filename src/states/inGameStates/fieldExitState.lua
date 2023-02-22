@@ -15,7 +15,7 @@ function fieldExitState:update(dt)
     --if the player selects that option, return the index of the option to the corresponding state
     if love.keyboard.wasPressed("return") then        
         if choice == 1 then
-            clearState(titleScreenState)
+            pushState(fadeOutState, {titleScreenState, "b"})
         elseif choice == 2 then
             pushState(confirmState, {quitState})
         end

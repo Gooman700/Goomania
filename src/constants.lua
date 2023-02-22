@@ -17,6 +17,7 @@ gTextures = {
   ["spriteSheet"] = love.graphics.newImage("assets/images/spriteSheet.png"),
   ["background"] = love.graphics.newImage("assets/images/background.png"),
   ["titleText"] = love.graphics.newImage("assets/images/titleText.png"),
+  ["battleScene"] = love.graphics.newImage("assets/images/battleScene.png"),
 
   ["sweep"] = love.graphics.newImage("assets/images/sweep.png"),
   ["empurr"] = love.graphics.newImage("assets/images/empurr.png"),
@@ -33,7 +34,8 @@ gFrames = {
 gSounds = {
   ["menuMusic"] = love.audio.newSource("assets/sounds/menuMusic.mp3","stream"),
   ["select"] = love.audio.newSource("assets/sounds/select.mp3","static"),
-  ["fieldMusic"] = love.audio.newSource("assets/sounds/fieldMusic.wav","stream")
+  ["fieldMusic"] = love.audio.newSource("assets/sounds/fieldMusic.wav","stream"),
+  ["battleMusic"] = love.audio.newSource("assets/sounds/battleMusic.mp3","stream")
 }
 
 --default values for a level 1 pokemon of that pokemon, numbers being attack, then defense, then speed.

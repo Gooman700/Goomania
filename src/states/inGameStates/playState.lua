@@ -4,7 +4,8 @@ local playerSpeed = 200
 local direction = 1
 local stage = 1
 local timer = 0 -- timer for animations
-local encounterRate = 0
+local encounterRate = 0 -- timer for encounters
+local isMoving
 
 function playState:enter()
   gSounds["fieldMusic"]:setLooping(true)
@@ -16,13 +17,93 @@ function playState:exit()
 end
 
 function playState:update(dt)
-
+  
   if love.keyboard.wasPressed("tab") then
     pushState(fieldMenuState)
   end
 
-  --if movement keys are pressed, let the moving animations roll, otherwise keep the sprite static
-  if love.keyboard.isDown("w") or love.keyboard.isDown("a") or love.keyboard.isDown("s") or love.keyboard.isDown("d") then
+  --while shift is held, speed increased (sprinting)
+  if love.keyboard.isDown("lshift") then
+    playerSpeed = 600
+  else
+    playerSpeed = 200
+  end
+
+  isMoving = false
+
+  if playerMap["collision"][1+math.ceil((-tileOffsetY+playerY+100)/64)][1+math.ceil((-tileOffsetX+playerX-(playerSpeed*dt))/64)] == 60 then
+    --IF MOVING LEFT
+    if playerX <= GAME_WIDTH/2 and (mapX > 0 or mapX == 0 and tileOffsetX < 0) then
+      if love.keyboard.isDown("a") or love.keyboard.isDown("left") then
+        isMoving = true
+        playerX = GAME_WIDTH/2
+        direction = 1
+        tileOffsetX = math.ceil(tileOffsetX + playerSpeed*dt)
+      end
+    else
+      if love.keyboard.isDown("a") or love.keyboard.isDown("left") then
+        isMoving = true
+        direction = 1
+        playerX = math.max(playerX - playerSpeed*dt, 0)
+      end
+    end
+  end
+
+  if playerMap["collision"][1+math.ceil((-tileOffsetY+1+playerY+100)/64)][1+math.ceil((-tileOffsetX+1+playerX+60+(playerSpeed*dt))/64)] == 60 then
+    --IF MOVING RIGHT
+    if playerX >= GAME_WIDTH/2 and (mapX < routeOne.length - playerMap.length or mapX == routeOne.length - playerMap.length and tileOffsetX > 0) then
+      if love.keyboard.isDown("d") or love.keyboard.isDown("right") then
+        isMoving = true
+        playerX = GAME_WIDTH/2
+        direction = 3
+        tileOffsetX = math.floor(tileOffsetX - playerSpeed*dt)
+      end
+    else
+      if love.keyboard.isDown("d") or love.keyboard.isDown("right") then
+        isMoving = true
+        direction = 3 
+        playerX = math.min(playerX + playerSpeed*dt, GAME_WIDTH-60)
+      end
+    end
+  end
+
+  --y at +60 instead of +100 to make it look more realistic
+  if playerMap["collision"][1+math.ceil((-tileOffsetY+1+playerY+60-(playerSpeed*dt))/64)][1+math.ceil((-tileOffsetX+1+playerX)/64)] == 60 and playerMap["collision"][1+math.ceil((-tileOffsetY+1+playerY+60-(playerSpeed*dt))/64)][1+math.ceil((-tileOffsetX+1+playerX+60)/64)] == 60 then
+    --IF MOVING UP
+    if playerY <= GAME_HEIGHT/2 and (mapY > 0 or mapY == 0 and tileOffsetY < 0) then
+      if love.keyboard.isDown("w") or love.keyboard.isDown("up") then
+        isMoving = true
+        direction = 0
+        tileOffsetY = math.ceil(tileOffsetY + playerSpeed*dt)
+      end
+    else
+      if love.keyboard.isDown("w") or love.keyboard.isDown("up") then
+        isMoving = true
+        direction = 0
+        playerY = math.max(playerY - playerSpeed*dt, 0)
+      end
+    end
+  end
+
+  if playerMap["collision"][1+math.ceil((-tileOffsetY+1+playerY+100+(playerSpeed*dt))/64)][1+math.ceil((-tileOffsetX+1+playerX)/64)] == 60 and playerMap["collision"][1+math.ceil((-tileOffsetY+1+playerY+100+(playerSpeed*dt))/64)][1+math.ceil((-tileOffsetX+1+playerX+60)/64)] == 60 then
+    --IF MOVING DOWN
+    if playerY >= GAME_HEIGHT/2 and (mapY < routeOne.height - playerMap.height or mapY == routeOne.height - playerMap.height and tileOffsetY > 0) then
+      if love.keyboard.isDown("s") or love.keyboard.isDown("down") then
+        isMoving = true
+        direction = 2
+        tileOffsetY = math.floor(tileOffsetY - playerSpeed*dt)
+      end
+    else
+      if love.keyboard.isDown("s") or love.keyboard.isDown("down") then
+        isMoving = true
+        direction = 2
+        playerY = math.min(playerY + playerSpeed*dt, GAME_HEIGHT - 100)
+      end
+    end
+  end
+
+  --if moving, let the moving animations roll, otherwise keep the sprite static
+  if isMoving then
     timer = timer + dt
 
     if timer > 0.2 then
@@ -35,79 +116,7 @@ function playState:update(dt)
   else
     stage = 1
   end
-
-
-  --while shift is held, speed increased (sprinting)
-  if love.keyboard.isDown("lshift") then
-    playerSpeed = 600
-  else
-    playerSpeed = 200
-  end
   
-
-  if playerMap["collision"][1+math.ceil((-tileOffsetY+playerY+100)/64)][1+math.ceil((-tileOffsetX+playerX-(playerSpeed*dt))/64)] == 60 then
-    --IF MOVING LEFT
-    if playerX <= GAME_WIDTH/2 and (mapX > 0 or mapX == 0 and tileOffsetX < 0) then
-      if love.keyboard.isDown("a") or love.keyboard.isDown("left") then
-        playerX = GAME_WIDTH/2
-        direction = 1
-        tileOffsetX = math.ceil(tileOffsetX + playerSpeed*dt)
-      end
-    else
-      if love.keyboard.isDown("a") or love.keyboard.isDown("left") then
-        direction = 1
-        playerX = math.max(playerX - playerSpeed*dt, 0)
-      end
-    end
-  end
-
-  if playerMap["collision"][1+math.ceil((-tileOffsetY+1+playerY+100)/64)][1+math.ceil((-tileOffsetX+1+playerX+60+(playerSpeed*dt))/64)] == 60 then
-    --IF MOVING RIGHT
-    if playerX >= GAME_WIDTH/2 and (mapX < routeOne.length - playerMap.length or mapX == routeOne.length - playerMap.length and tileOffsetX > 0) then
-      if love.keyboard.isDown("d") or love.keyboard.isDown("right") then
-        playerX = GAME_WIDTH/2
-        direction = 3
-        tileOffsetX = math.floor(tileOffsetX - playerSpeed*dt)
-      end
-    else
-      if love.keyboard.isDown("d") or love.keyboard.isDown("right") then
-        direction = 3 
-        playerX = math.min(playerX + playerSpeed*dt, GAME_WIDTH-60)
-      end
-    end
-  end
-
-  --y at +60 instead of +100 to make it look more realistic
-  if playerMap["collision"][1+math.ceil((-tileOffsetY+1+playerY+60-(playerSpeed*dt))/64)][1+math.ceil((-tileOffsetX+1+playerX)/64)] == 60 and playerMap["collision"][1+math.ceil((-tileOffsetY+1+playerY+60-(playerSpeed*dt))/64)][1+math.ceil((-tileOffsetX+1+playerX+60)/64)] == 60 then
-    --IF MOVING UP
-    if playerY <= GAME_HEIGHT/2 and (mapY > 0 or mapY == 0 and tileOffsetY < 0) then
-      if love.keyboard.isDown("w") or love.keyboard.isDown("up") then
-        direction = 0
-        tileOffsetY = math.ceil(tileOffsetY + playerSpeed*dt)
-      end
-    else
-      if love.keyboard.isDown("w") or love.keyboard.isDown("up") then
-        direction = 0
-        playerY = math.max(playerY - playerSpeed*dt, 0)
-      end
-    end
-  end
-
-  if playerMap["collision"][1+math.ceil((-tileOffsetY+1+playerY+100+(playerSpeed*dt))/64)][1+math.ceil((-tileOffsetX+1+playerX)/64)] == 60 and playerMap["collision"][1+math.ceil((-tileOffsetY+1+playerY+100+(playerSpeed*dt))/64)][1+math.ceil((-tileOffsetX+1+playerX+60)/64)] == 60 then
-    --IF MOVING DOWN
-    if playerY >= GAME_HEIGHT/2 and (mapY < routeOne.height - playerMap.height or mapY == routeOne.height - playerMap.height and tileOffsetY > 0) then
-      if love.keyboard.isDown("s") or love.keyboard.isDown("down") then
-        direction = 2
-        tileOffsetY = math.floor(tileOffsetY - playerSpeed*dt)
-      end
-    else
-      if love.keyboard.isDown("s") or love.keyboard.isDown("down") then
-        direction = 2
-        playerY = math.min(playerY + playerSpeed*dt, GAME_HEIGHT - 100)
-      end
-    end
-  end
-
 
   if tileOffsetX > 64 then
     tileOffsetX = 0
@@ -123,10 +132,13 @@ function playState:update(dt)
     mapY = mapY+1
   end
 
-  if playerMap["interaction"][1+math.ceil((-tileOffsetY+playerY+1+100)/64)][1+math.ceil((-tileOffsetX+playerX+1)/64)] == 52 or playerMap["interaction"][1+math.ceil((-tileOffsetY+playerY+1+100)/64)][1+math.ceil((-tileOffsetX+playerX+60+1)/64)] == 52 then
-    encounterRate = math.random(1,200)
-    if encounterRate == 1 then
-      pushState(battleMenuState)
+  if isMoving and (playerMap["interaction"][1+math.ceil((-tileOffsetY+playerY+1+100)/64)][1+math.ceil((-tileOffsetX+playerX+1)/64)] == 52 or playerMap["interaction"][1+math.ceil((-tileOffsetY+playerY+1+100)/64)][1+math.ceil((-tileOffsetX+playerX+60+1)/64)] == 52) then
+    encounterRate = encounterRate + dt
+    if encounterRate > 2 then
+      encounterRate = 0
+      gSounds["fieldMusic"]:stop()
+      gSounds["battleMusic"]:play()
+      pushState(battleIntroState)
     end
   end
 
