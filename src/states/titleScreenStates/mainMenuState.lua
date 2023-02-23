@@ -18,9 +18,14 @@ function mainMenuState:update(dt)
         
         --using if statement as there are only 3 outcomes
         if choice == 1 then
-            pushState(fadeOutState, {loadSaveState, "b"})
+            if love.filesystem.getInfo("gooSave.json") == nil then
+                love.graphics.setFont(gFonts["extraLarge"])
+                pushState(confirmState, {"No save detected, do you want to create a new one?", fadeOutState, newSaveState, "b"})
+            else
+                pushState(fadeOutState, {loadSaveState, "b"})
+            end
         elseif choice == 2 then
-            pushState(confirmState, {fadeOutState, newSaveState, "b"})
+            pushState(confirmState, {"Creating a new save will overwrite your old one, are you sure you wish to continue?", fadeOutState, newSaveState, "b"})
         else
             pushState(settings)
         end 

@@ -15,7 +15,7 @@ playerMap = {
 }
 
 
-function loadSaveState:enter()
+function loadSaveState:enter()    
     local playerRawData = love.filesystem.read("gooSave.json")
     local playerData = json:decode(playerRawData)
 
@@ -34,7 +34,7 @@ function loadSaveState:enter()
 
     moveMap(mapX,mapY)
 
-    clearState(playState)    
+    clearState(playState)
 end
 
 function loadSaveState:exit()end

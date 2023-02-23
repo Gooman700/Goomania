@@ -7,7 +7,8 @@ TILE_SIZE = 64
 gFonts = {
   ["small"] = love.graphics.newFont("assets/fonts/font.ttf", 8),
   ["medium"] = love.graphics.newFont("assets/fonts/font.ttf", 16),
-  ["large"] = love.graphics.newFont("assets/fonts/font.ttf", 32)
+  ["large"] = love.graphics.newFont("assets/fonts/font.ttf", 32),
+  ["extraLarge"] = love.graphics.newFont("assets/fonts/font.ttf", 128)
 }   
 love.graphics.setFont(gFonts["small"])
 

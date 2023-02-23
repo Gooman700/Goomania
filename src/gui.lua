@@ -4,7 +4,7 @@ function panel(x,y,width,height)
     love.graphics.setColor(0.65, 0.91, 0.87)
     love.graphics.rectangle('fill', x, y, width, height, 3)
     love.graphics.setColor(1, 1, 1)
-    love.graphics.rectangle('fill', x + 4, y + 4, width - 8, height - 8, 3)
+    love.graphics.rectangle('fill', x + 6, y + 6, width - 12, height - 12, 3)
     love.graphics.setColor(1, 1, 1)
 end
 

@@ -17,7 +17,7 @@ function fieldExitState:update(dt)
         if choice == 1 then
             pushState(fadeOutState, {titleScreenState, "b"})
         elseif choice == 2 then
-            pushState(confirmState, {quitState})
+            pushState(confirmState, {"Are you sure you want to quit?", quitState})
         end
     end
 end

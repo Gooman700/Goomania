@@ -18,10 +18,9 @@ function textState:update(dt)
 end
 
 function textState:draw()
-    love.graphics.setFont(gFonts["medium"])
     panel(values[2],values[3],values[4],values[5])
 
     love.graphics.setColor(0,0,0)
-    love.graphics.printf(values[1], values[2], values[3], values[4])
+    love.graphics.printf(values[1], values[2]+6, values[3], values[4]-6)
     love.graphics.setColor(1,1,1)
 end
