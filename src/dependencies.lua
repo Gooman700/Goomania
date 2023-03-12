@@ -21,6 +21,8 @@ require("src/states/inGameStates/playState")
 require("src/states/inGameStates/battleIntroState")
 require("src/states/inGameStates/fieldMenuState")
 require("src/states/inGameStates/fieldExitState")
+require("src/states/inGameStates/battleFightState")
+require("src/states/inGameStates/tutorialState")
 
 require("src/states/transitionStates/fadeInState")
 require("src/states/transitionStates/fadeOutState")

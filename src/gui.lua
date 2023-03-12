@@ -42,8 +42,8 @@ end
 function slideImageUpdate(XY, finalXY, timer, time, dt)
     local progress = math.min(timer/time, 1)
 
-    XY[1] = lerp(XY[1], finalXY[1], progress)
-    XY[2] = lerp(XY[2], finalXY[2], progress)
+    XY[1] = math.floor(lerp(XY[1], finalXY[1], progress))
+    XY[2] = math.floor(lerp(XY[2], finalXY[2], progress))
 
     return XY
 end

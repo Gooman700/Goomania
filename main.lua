@@ -38,15 +38,13 @@ end
 
 function love.draw()--all the rendering needed for each frame
     push:start()
+    
+    love.graphics.setColor(1,1,1,1)
 
     for i, state in ipairs(stateStack) do
         if state:draw() then
           state:draw()
         end
-    end
-
-    for i =1, #stateStack do
-        love.graphics.setColor(1,1,1,1)
     end
 
     push:finish()

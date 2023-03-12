@@ -21,6 +21,7 @@ gTextures = {
   ["battleScene"] = love.graphics.newImage("assets/images/battleScene.png"),
 
   ["sweep"] = love.graphics.newImage("assets/images/sweep.png"),
+  ["sweepBack"] = love.graphics.newImage("assets/images/sweepBack.png"),
   ["empurr"] = love.graphics.newImage("assets/images/empurr.png"),
   ["scrappy"] = love.graphics.newImage("assets/images/scrappy.png")
 }
@@ -41,9 +42,9 @@ gSounds = {
 
 --default values for a level 1 pokemon of that pokemon, numbers being attack, then defense, then speed.
 defPokemon = {
-  ["sweep"] = {gTextures["sweep"], 15, 5, 7},
-  ["empurr"] = {gTextures["empurr"], 10, 8, 12},
-  ["scrappy"] = {gTextures["scrappy"], 8, 12, 9}
+  ["sweep"] = {["image"] = gTextures["sweep"], ["backImage"] = gTextures["sweepBack"], ["attack"] = 15,["defense"] = 5, ["speed"] = 7},
+  ["empurr"] = {["image"] = gTextures["empurr"], ["attack"] = 10,["defense"] = 8, ["speed"] = 12},
+  ["scrappy"] = {["image"] = gTextures["scrappy"], ["attack"] = 8,["defense"] = 12, ["speed"] = 9}
 }
 
 routeOne = {

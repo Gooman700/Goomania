@@ -11,9 +11,9 @@ function popState()
     previousState:exit()
 end
 
-function changeState(newState)
+function changeState(newState, params)
     popState()
-    pushState(newState)
+    pushState(newState, params)
 end
 
 function clearState(newState)   

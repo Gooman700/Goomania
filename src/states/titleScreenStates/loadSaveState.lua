@@ -28,10 +28,6 @@ function loadSaveState:enter()
     playerParty = playerData.playerParty
     inventory = playerData.inventory
 
-    for i = 1, #playerParty do
-        playerPokemon[i] = playerParty[i]
-    end
-
     moveMap(mapX,mapY)
 
     clearState(playState)
