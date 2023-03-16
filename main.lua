@@ -4,13 +4,13 @@
 require("src/dependencies")
 
 function love.load()--executed at the start of the program
+    
+    --Get the last used volume from the settings save file and set the current volume to it
+    local rawSettings = love.filesystem.read("gooSettings.json")
+    gSettings = json:decode(rawSettings)
+    love.audio.setVolume(gSettings.volume)
 
     push:setupScreen(GAME_WIDTH, GAME_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {fullscreen = true})
-
-    gVolume = 0
-
-    love.audio.setVolume(gVolume)
-
 
     -- set love"s default filter to "nearest-neighbor", which essentially
     -- means there will be no filtering of pixels (blurriness), which is

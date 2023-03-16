@@ -126,7 +126,9 @@ function playState:update(dt)
       encounterRate = 0
       gSounds["fieldMusic"]:stop()
       gSounds["battleMusic"]:play()
-      pushState(battleIntroState)
+
+      --For a double flash effect, a series or parameters are used for a chain of transition states for the desired effect.
+      pushState(fadeOutState, {fadeInState, "w", 0.2, newParams = {"w", 0.2, nextState = fadeOutState, newParams = {battleIntroState, "w", 0.2, stateType = "push"}}, stateType = "push"})
     end
   end
 

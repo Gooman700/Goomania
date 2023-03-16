@@ -25,7 +25,7 @@ function mainMenuState:update(dt)
                 pushState(fadeOutState, {loadSaveState, "b"})
             end
         elseif choice == 2 then
-            pushState(confirmState, {"Creating a new save will overwrite your old one, are you sure you wish to continue?", fadeOutState, newSaveState, "b"})
+            pushState(confirmState, {"Creating a new save will overwrite your old one, are you sure you wish to continue?", fadeOutState, introductionState, "b"})
         else
             pushState(settings)
         end 

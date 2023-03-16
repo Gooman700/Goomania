@@ -35,7 +35,7 @@ end
 function battleFightState:draw()
     love.graphics.draw(gTextures["battleScene"], 0, 0)
     love.graphics.draw(defPokemon[opponent].image, 2*(GAME_WIDTH/3), 250)
-    love.graphics.draw(defPokemon[playerPokemon.name].backImage, GAME_WIDTH/4-100, GAME_HEIGHT-100-400)
+    love.graphics.draw(defPokemon[playerPokemon.name].backImage, GAME_WIDTH/4-115, GAME_HEIGHT-100-400)
 
     selectionTextBox(text, 0, 7*GAME_HEIGHT/8, GAME_WIDTH, GAME_HEIGHT/8, choice)
 end

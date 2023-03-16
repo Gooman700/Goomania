@@ -20,6 +20,8 @@ gTextures = {
   ["titleText"] = love.graphics.newImage("assets/images/titleText.png"),
   ["battleScene"] = love.graphics.newImage("assets/images/battleScene.png"),
 
+  ["tutorialBG"] = love.graphics.newImage("assets/images/tutorialBG.png"),
+
   ["sweep"] = love.graphics.newImage("assets/images/sweep.png"),
   ["sweepBack"] = love.graphics.newImage("assets/images/sweepBack.png"),
   ["empurr"] = love.graphics.newImage("assets/images/empurr.png"),

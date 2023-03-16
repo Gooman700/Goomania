@@ -2,8 +2,11 @@
 
 
 function centerText(text,fontSize,height)
-    height = height or 1
-    love.graphics.print(string.format("%s", text), GAME_WIDTH / 2 - text:len() * fontSize, GAME_HEIGHT / 2 + height)
+    local textWidth = love.graphics.getFont():getWidth(text)
+    local x = GAME_WIDTH / 2 - textWidth / 2
+    local y = height or GAME_HEIGHT / 2
+
+    love.graphics.print(text, x, y)
 end
 
 --for a given atlas (tileSheet), split it up into quads tileWidth wide and tileHeight tall, storing them in the table tiles

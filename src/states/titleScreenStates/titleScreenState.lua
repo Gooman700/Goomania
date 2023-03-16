@@ -56,7 +56,7 @@ function titleScreenState:draw()
     end
 
     local text = "Press Enter To Play!"
-    centerText(text,10,150)
+    centerText(text,16,3*GAME_HEIGHT/4)
   end
   
 end

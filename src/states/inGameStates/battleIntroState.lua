@@ -31,6 +31,7 @@ function battleIntroState:enter()
     playerXY = {-400, GAME_HEIGHT-100}
     playerFinalXY = {GAME_WIDTH/4-100, GAME_HEIGHT-100-400}
 
+    pushState(fadeInState, {"w", 0.2})
 end
 
 function battleIntroState:exit()end

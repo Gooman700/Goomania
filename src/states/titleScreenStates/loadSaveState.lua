@@ -27,7 +27,7 @@ function loadSaveState:enter()
     tileOffsetY = playerData.tileOffsetY
     playerParty = playerData.playerParty
     inventory = playerData.inventory
-
+    
     moveMap(mapX,mapY)
 
     clearState(playState)

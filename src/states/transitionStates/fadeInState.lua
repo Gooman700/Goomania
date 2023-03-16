@@ -1,20 +1,42 @@
 fadeInState = {}
 local timer = 0
-local timeToFade = 0.5
+local timeToFade
 local opacity = 1
 local colour
+local nextState
+local newParams
 
 function fadeInState:enter(params)
     colour = params
     timer = 0
     opacity = 1
+    timeToFade = 0.5
+    nextState = nil
+    newParams = nil
+
+    if params.newParams then
+        newParams = params.newParams
+    end
+
+    if params.nextState then
+        nextState = params.nextState
+    end
+
+    if params[2] then
+        timeToFade = params[2]
+        colour = params[1]
+    end
 end
 function fadeInState:update(dt)
     opacity = math.max(0, opacity - (1/timeToFade)*dt)
     timer = timer + dt
 
     if timer > timeToFade then
-        popState()
+        if nextState then
+            changeState(nextState, newParams)
+        else
+            popState()
+        end
     end
 end
 function fadeInState:draw()
