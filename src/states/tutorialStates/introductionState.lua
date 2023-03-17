@@ -4,6 +4,7 @@ local stage
 
 function introductionState:enter()
     stage = 1
+    pushState(fadeInState, "b")
 end
 
 function introductionState:exit()end

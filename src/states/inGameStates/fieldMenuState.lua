@@ -1,6 +1,6 @@
 fieldMenuState = {}
 local choice = 1
-local text = {"Save", "Exit"}
+local text = {"Save", "Exit", "Settings"}
 
 function fieldMenuState:enter()end
 
@@ -19,6 +19,8 @@ function fieldMenuState:update(dt)
             changeState(saveState)
         elseif choice == 2 then
             pushState(fieldExitState)
+        elseif choice == 3 then
+            pushState(settings)
         end
     end
 end

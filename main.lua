@@ -4,7 +4,14 @@
 require("src/dependencies")
 
 function love.load()--executed at the start of the program
-    
+
+    --if its the first time playing and there is no settings file, create one with the default values.
+    if not love.filesystem.getInfo("gooSettings.json") then
+        local defaultSettings = {volume = 0.5}
+        local rawSettings = json:encode(defaultSettings)
+        love.filesystem.write("gooSettings.json", rawSettings)
+    end
+
     --Get the last used volume from the settings save file and set the current volume to it
     local rawSettings = love.filesystem.read("gooSettings.json")
     gSettings = json:decode(rawSettings)

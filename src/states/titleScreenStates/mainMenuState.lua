@@ -1,9 +1,11 @@
 --STATE TO TAKE IN INPUT AND PUSH THE CORRESPONDING STATE ACCORDINGLY
 mainMenuState = {}
-local choice = 1
+local choice
 local text = {"Load Game", "New Game", "Settings"}
 
-function mainMenuState:enter()end
+function mainMenuState:enter()
+    choice = 1
+end
 function mainMenuState:exit()end
 
 function mainMenuState:update(dt)
