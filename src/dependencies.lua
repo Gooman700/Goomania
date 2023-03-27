@@ -4,6 +4,10 @@ Class = require("libraries/class")
 push = require("libraries/push")
 json = require("libraries/json")
 
+require("src/states/tempStates/integration")
+require("src/states/tempStates/beta")
+require("src/states/tempStates/alpha")
+
 require("src/util")
 
 require("src/constants")--all constant values
@@ -22,6 +26,9 @@ require("src/states/inGameStates/battleIntroState")
 require("src/states/inGameStates/fieldMenuState")
 require("src/states/inGameStates/fieldExitState")
 require("src/states/inGameStates/battleFightState")
+require("src/states/inGameStates/attackState")
+require("src/states/inGameStates/defeatState")
+require("src/states/inGameStates/victoryState")
 
 require("src/states/tutorialStates/introductionState")
 require("src/states/tutorialStates/chooseGoomonState")

@@ -22,7 +22,7 @@ function mainMenuState:update(dt)
         if choice == 1 then
             if love.filesystem.getInfo("gooSave.json") == nil then
                 love.graphics.setFont(gFonts["extraLarge"])
-                pushState(confirmState, {"No save detected, do you want to create a new one?", fadeOutState, newSaveState, "b"})
+                pushState(confirmState, {"No save detected, do you want to create a new one?", fadeOutState, introductionState, "b"})
             else
                 pushState(fadeOutState, {loadSaveState, "b"})
             end

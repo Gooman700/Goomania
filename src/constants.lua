@@ -43,11 +43,11 @@ gSounds = {
   ["battleMusic"] = love.audio.newSource("assets/sounds/battleMusic.mp3","stream")
 }
 
---default values for a level 1 pokemon of that pokemon, numbers being attack, then defense, then speed.
-defPokemon = {
-  ["sweep"] = {["image"] = gTextures["sweep"], ["backImage"] = gTextures["sweepBack"], ["attack"] = 15,["defense"] = 5, ["speed"] = 7},
-  ["empurr"] = {["image"] = gTextures["empurr"], ["backImage"] = gTextures["empurrBack"], ["attack"] = 10,["defense"] = 8, ["speed"] = 12},
-  ["scrappy"] = {["image"] = gTextures["scrappy"], ["attack"] = 8,["defense"] = 12, ["speed"] = 9}
+--default values for a level 1 goomon of that goomon, numbers being attack, then defense, then speed.
+defGoomon = {
+  ["sweep"] = {["image"] = gTextures["sweep"], ["backImage"] = gTextures["sweepBack"], ["health"] = 60, ["attack"] = 15,["defense"] = 5, ["speed"] = 7},
+  ["empurr"] = {["image"] = gTextures["empurr"], ["backImage"] = gTextures["empurrBack"], ["health"] = 64, ["attack"] = 10,["defense"] = 8, ["speed"] = 12},
+  ["scrappy"] = {["image"] = gTextures["scrappy"], ["attack"] = 8,["defense"] = 12, ["health"] = 70, ["speed"] = 9}
 }
 
 routeOne = {
@@ -160,7 +160,9 @@ routeOne = {
     {60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60}
   },
 
-  ["wildPokemon"] = {"sweep", "empurr", "scrappy"},
+  --what wild goomon can appear in this route and the level they can appear at
+  ["wildGoomon"] = {"sweep", "empurr", "scrappy"},
+  ["level"] = 4,
   
   ["length"] = 91,
   ["height"] = 34

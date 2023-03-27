@@ -9,6 +9,13 @@ function centerText(text,fontSize,height)
     love.graphics.print(text, x, y)
 end
 
+function textBox(text, x, y, width, height)
+    love.graphics.setColor(1,1,1)
+    panel(x, y , width, height)
+    love.graphics.setColor(0,0,0)
+    centerText(text, 16, y+30)
+end
+
 --for a given atlas (tileSheet), split it up into quads tileWidth wide and tileHeight tall, storing them in the table tiles
 function generateQuads(atlas, tileWidth, tileHeight)
     local tiles = {}
@@ -41,3 +48,10 @@ end
 function lerp(start, finish, time)
     return start + (finish - start) * time/16
 end
+
+--shader for drawing images in white
+whiteoutShader = love.graphics.newShader[[
+vec4 effect(vec4 color, Image texture, vec2 textureCoords, vec2 screenCoords){
+	return vec4(1, 1, 1, Texel(texture, textureCoords).a) * color;
+}
+]]
