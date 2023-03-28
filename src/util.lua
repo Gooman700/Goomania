@@ -14,6 +14,7 @@ function textBox(text, x, y, width, height)
     panel(x, y , width, height)
     love.graphics.setColor(0,0,0)
     centerText(text, 16, y+30)
+    love.graphics.setColor(1,1,1)
 end
 
 --for a given atlas (tileSheet), split it up into quads tileWidth wide and tileHeight tall, storing them in the table tiles

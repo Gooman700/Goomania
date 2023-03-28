@@ -2,7 +2,9 @@ defeatState = {}
 
 local timer
 
-function defeatState:enter()end
+function defeatState:enter()
+    timer = 0 
+end
 
 function defeatState:exit()end
 

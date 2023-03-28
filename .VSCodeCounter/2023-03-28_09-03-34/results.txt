@@ -1,0 +1,73 @@
+Date : 2023-03-28 09:03:34
+Directory : c:\Users\edwar\OneDrive\Goomania
+Total : 37 files,  2289 codes, 298 comments, 572 blanks, all 3159 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Lua      |         36 |      2,282 |        298 |        569 |      3,149 |
+| Markdown |          1 |          7 |          0 |          3 |         10 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                               | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                  |         37 |      2,289 |        298 |        572 |      3,159 |
+| . (Files)                                                                          |          3 |         97 |         10 |         27 |        134 |
+| libraries                                                                          |          3 |        896 |        199 |        226 |      1,321 |
+| src                                                                                |         31 |      1,296 |         89 |        319 |      1,704 |
+| src (Files)                                                                        |          5 |        279 |         18 |         45 |        342 |
+| src\states                                                                         |         26 |      1,017 |         71 |        274 |      1,362 |
+| src\states (Files)                                                                 |          3 |         66 |          4 |         18 |         88 |
+| src\states\inGameStates                                                            |         10 |        534 |         51 |        142 |        727 |
+| src\states\tempStates                                                              |          3 |         51 |          0 |         21 |         72 |
+| src\states\titleScreenStates                                                       |          6 |        206 |         13 |         62 |        281 |
+| src\states\transitionStates                                                        |          2 |         91 |          3 |         13 |        107 |
+| src\states\tutorialStates                                                          |          2 |         69 |          0 |         18 |         87 |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                           | language | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\edwar\OneDrive\Goomania\README.md                                         | Markdown |          7 |          0 |          3 |         10 |
+| c:\Users\edwar\OneDrive\Goomania\conf.lua                                          | Lua      |         48 |          0 |          3 |         51 |
+| c:\Users\edwar\OneDrive\Goomania\libraries\class.lua                               | Lua      |         74 |          9 |         16 |         99 |
+| c:\Users\edwar\OneDrive\Goomania\libraries\json.lua                                | Lua      |        603 |        182 |        156 |        941 |
+| c:\Users\edwar\OneDrive\Goomania\libraries\push.lua                                | Lua      |        219 |          8 |         54 |        281 |
+| c:\Users\edwar\OneDrive\Goomania\main.lua                                          | Lua      |         42 |         10 |         21 |         73 |
+| c:\Users\edwar\OneDrive\Goomania\src\constants.lua                                 | Lua      |        152 |          6 |         11 |        169 |
+| c:\Users\edwar\OneDrive\Goomania\src\dependencies.lua                              | Lua      |         32 |          1 |         10 |         43 |
+| c:\Users\edwar\OneDrive\Goomania\src\gui.lua                                       | Lua      |         33 |          6 |         10 |         49 |
+| c:\Users\edwar\OneDrive\Goomania\src\stateStack.lua                                | Lua      |         20 |          0 |          4 |         24 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\confirmState.lua                       | Lua      |         40 |          2 |         11 |         53 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\inGameStates\attackState copy.lua      | Lua      |        104 |         13 |         32 |        149 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\inGameStates\attackState.lua           | Lua      |        101 |         14 |         29 |        144 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\inGameStates\battleFightState.lua      | Lua      |         57 |          9 |         13 |         79 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\inGameStates\battleIntroState.lua      | Lua      |         48 |          3 |         14 |         65 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\inGameStates\defeatState.lua           | Lua      |         18 |          0 |          6 |         24 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\inGameStates\fieldExitState.lua        | Lua      |         22 |          1 |          6 |         29 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\inGameStates\fieldMenuState.lua        | Lua      |         24 |          1 |          7 |         32 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\inGameStates\playState.lua             | Lua      |        121 |         10 |         21 |        152 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\inGameStates\saveState.lua             | Lua      |         23 |          0 |          8 |         31 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\inGameStates\victoryState.lua          | Lua      |         16 |          0 |          6 |         22 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\quitState.lua                          | Lua      |          7 |          0 |          2 |          9 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\tempStates\alpha.lua                   | Lua      |         17 |          0 |          7 |         24 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\tempStates\beta.lua                    | Lua      |         17 |          0 |          7 |         24 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\tempStates\integration.lua             | Lua      |         17 |          0 |          7 |         24 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\textState.lua                          | Lua      |         19 |          2 |          5 |         26 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\titleScreenStates\loadSaveState.lua    | Lua      |         31 |          0 |          9 |         40 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\titleScreenStates\mainMenuState.lua    | Lua      |         31 |          3 |          8 |         42 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\titleScreenStates\newSaveState.lua     | Lua      |         35 |          1 |          8 |         44 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\titleScreenStates\settings.lua         | Lua      |         20 |          0 |          6 |         26 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\titleScreenStates\titleScreenState.lua | Lua      |         40 |          5 |         17 |         62 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\titleScreenStates\volume.lua           | Lua      |         49 |          4 |         14 |         67 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\transitionStates\fadeInState.lua       | Lua      |         45 |          0 |          5 |         50 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\transitionStates\fadeOutState.lua      | Lua      |         46 |          3 |          8 |         57 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\tutorialStates\chooseGoomonState.lua   | Lua      |         37 |          0 |         10 |         47 |
+| c:\Users\edwar\OneDrive\Goomania\src\states\tutorialStates\introductionState.lua   | Lua      |         32 |          0 |          8 |         40 |
+| c:\Users\edwar\OneDrive\Goomania\src\util.lua                                      | Lua      |         42 |          5 |         10 |         57 |
+| Total                                                                              |          |      2,289 |        298 |        572 |      3,159 |
++------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
