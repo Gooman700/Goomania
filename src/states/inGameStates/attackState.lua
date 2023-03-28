@@ -106,7 +106,6 @@ function attackState:update(dt)
     elseif stage == 4 then
 
         if turn == "player" then
-            print("bodge")
             playerParty[1] = attacker
         else
             playerParty[1] = defender
@@ -135,20 +134,6 @@ function attackState:update(dt)
                 end
             end
         elseif defender.health == currentHealth then
-            
-            if hasAttacked == false then
-                if turn == "player" then
-                    turn = "wild"
-                else
-                    turn = "player"
-                end
-                hasAttacked = true
-                --if the other goomon hasnt attacked, call the state again but switch whos attacking and whos defending
-                changeState(attackState, {defender, attacker, turn})
-            else
-                hasAttacked = false
-                popState()
-            end
 
             if hasAttacked == false then
                 if turn == "player" then
