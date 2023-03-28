@@ -19,7 +19,7 @@ function newSaveState:enter(goomon)
         ["defense"] = goomonStats.defense, 
         ["speed"] = goomonStats.speed
     }}
-    goomonStats = {}
+    goomonStats = {}    
 
     playerData.mapX = 0
     playerData.mapY = 0
