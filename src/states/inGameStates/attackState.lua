@@ -59,30 +59,7 @@ function attackState:exit()end
 function attackState:update(dt)
 
     timer = timer + dt
-    
-    --print so and so attacked
-    if stage == 0 then
-        
-        if timer > 0.6 then
-            timer = 0
-            stage = stage + 1
-        end
 
-    --flash the hurting pokemon
-    elseif stage == 1 then
-
-        if timer > 0.8 then
-            timer = 0
-            stage = stage + 1
-        end
-
-        flashTimer = flashTimer + dt
-
-    --healthbar goes down
-    elseif stage == 2 then
-
-    timer = timer + dt
-    
     --print so and so attacked
     if stage == 0 then
         
@@ -173,8 +150,6 @@ function attackState:update(dt)
                 popState()
             end
 
-        end
-
             if hasAttacked == false then
                 if turn == "player" then
                     turn = "wild"
@@ -199,8 +174,6 @@ end
 function attackState:draw()
         
     if stage == 1 then
-        
-    if stage == 1 then
 
         if flashTimer > 0.2 then
             love.graphics.setShader(whiteoutShader)
@@ -215,14 +188,6 @@ function attackState:draw()
         else
             love.graphics.draw(defGoomon[defender.name].backImage, GAME_WIDTH/4-115, GAME_HEIGHT-100-400)
         end
-
-    elseif stage == 2 then
-    elseif stage == 3 then
-        textBox("It was a critical hit!", 0, 7*GAME_HEIGHT/8, GAME_WIDTH, GAME_HEIGHT/8)
-    end
-
-    if stage < 3 then
-        textBox(string.upper(attacker.name) .. " attacked " .. string.upper(defender.name), 0, 7*GAME_HEIGHT/8, GAME_WIDTH, GAME_HEIGHT/8)
 
     elseif stage == 2 then
     elseif stage == 3 then
