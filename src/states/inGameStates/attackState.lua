@@ -5,6 +5,11 @@ local timer
 local stage
 
 --timer for the Goomon flashing when taking damage
+--stage for which part of the attack animation is happeneing, timer for how far through it we are   
+local timer
+local stage
+
+--timer for the Goomon flashing when taking damage
 local flashTimer
 
 local attacker, defender, turn
@@ -13,7 +18,13 @@ local attacker, defender, turn
 local currentHealth
 
 --variable for if the attack was a crit
+--variable for if the attack was a crit
 local criticalHit
+
+local alive
+
+--both Goomon have to attack, this variable keeps track of if they both have, by being either true or false
+local hasAttacked = false
 
 local alive
 
@@ -29,9 +40,15 @@ function attackState:enter(params)
 
     alive = true
     
+
+    alive = true
+    
     --damage calculation, function is at the bottom.
     currentHealth = damageCalc(attacker, defender)
 
+    flashTimer = 0
+    timer = 0
+    stage = 0
     flashTimer = 0
     timer = 0
     stage = 0
@@ -40,6 +57,29 @@ end
 function attackState:exit()end
 
 function attackState:update(dt)
+
+    timer = timer + dt
+    
+    --print so and so attacked
+    if stage == 0 then
+        
+        if timer > 0.6 then
+            timer = 0
+            stage = stage + 1
+        end
+
+    --flash the hurting pokemon
+    elseif stage == 1 then
+
+        if timer > 0.8 then
+            timer = 0
+            stage = stage + 1
+        end
+
+        flashTimer = flashTimer + dt
+
+    --healthbar goes down
+    elseif stage == 2 then
 
     timer = timer + dt
     
@@ -135,11 +175,30 @@ function attackState:update(dt)
 
         end
 
+            if hasAttacked == false then
+                if turn == "player" then
+                    turn = "wild"
+                else
+                    turn = "player"
+                end
+                hasAttacked = true
+                --if the other goomon hasnt attacked, call the state again but switch whos attacking and whos defending
+                changeState(attackState, {defender, attacker, turn})
+            else
+                hasAttacked = false
+                popState()
+            end
+
+        end
+
     end
+    
     
 end
 
 function attackState:draw()
+        
+    if stage == 1 then
         
     if stage == 1 then
 
@@ -156,6 +215,14 @@ function attackState:draw()
         else
             love.graphics.draw(defGoomon[defender.name].backImage, GAME_WIDTH/4-115, GAME_HEIGHT-100-400)
         end
+
+    elseif stage == 2 then
+    elseif stage == 3 then
+        textBox("It was a critical hit!", 0, 7*GAME_HEIGHT/8, GAME_WIDTH, GAME_HEIGHT/8)
+    end
+
+    if stage < 3 then
+        textBox(string.upper(attacker.name) .. " attacked " .. string.upper(defender.name), 0, 7*GAME_HEIGHT/8, GAME_WIDTH, GAME_HEIGHT/8)
 
     elseif stage == 2 then
     elseif stage == 3 then

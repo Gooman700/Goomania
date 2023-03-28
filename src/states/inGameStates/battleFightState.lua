@@ -3,12 +3,15 @@ battleFightState = {}
 
 function battleFightState:enter()
     pushState(battleMenuState)
+    pushState(battleMenuState)
 end
 
 function battleFightState:exit()
     gSounds["battleMusic"]:stop()
     gSounds["fieldMusic"]:play()
 end
+
+function battleFightState:update(dt)end
 
 function battleFightState:update(dt)end
 
