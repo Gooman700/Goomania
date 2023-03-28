@@ -3,6 +3,9 @@ GAME_WIDTH, GAME_HEIGHT = 1920, 1080
 
 TILE_SIZE = 64
 
+--ALL VARIABLES TO DO WITH THE PLAYERS SAVE
+playerParty = {}
+
 --initialise all fonts into this global table which can be called upon using the small/medium/large keys
 gFonts = {
   ["small"] = love.graphics.newFont("assets/fonts/font.ttf", 8),

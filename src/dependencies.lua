@@ -29,6 +29,8 @@ require("src/states/inGameStates/battleFightState")
 require("src/states/inGameStates/attackState")
 require("src/states/inGameStates/defeatState")
 require("src/states/inGameStates/victoryState")
+require("src/states/inGameStates/battleMenuState")
+require("src/states/inGameStates/switchGoomonState")
 
 require("src/states/tutorialStates/introductionState")
 require("src/states/tutorialStates/chooseGoomonState")

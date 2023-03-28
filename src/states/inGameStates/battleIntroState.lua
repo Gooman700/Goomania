@@ -30,8 +30,6 @@ function battleIntroState:enter()
     }
     --select the wild goomon as one of the goomon that can spawn in the current route with allocated stats
     wildGoomon = {name = wildName, maxHealth = wildStats.maxHealth, health = wildStats.maxHealth, level = wildLevel, attack = wildStats.attack, defense = wildStats.defense, speed = wildStats.speed}
-    --select the players first goomon in their party to be their first to battle
-    playerGoomon = playerParty[1]
 
     panelXY = {0, GAME_HEIGHT}
     panelFinalXY = {0, 0}
@@ -61,5 +59,5 @@ end
 function battleIntroState:draw()
     love.graphics.draw(gTextures["battleScene"], 0, panelXY[2])
     love.graphics.draw(defGoomon[wildGoomon.name].image, opponentXY[1], opponentFinalXY[2])
-    love.graphics.draw(defGoomon[playerGoomon.name].backImage, playerXY[1], playerFinalXY[2])
+    love.graphics.draw(defGoomon[playerParty[1].name].backImage, playerXY[1], playerFinalXY[2])
 end
