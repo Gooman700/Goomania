@@ -62,6 +62,18 @@ anyKeyPressed = 0
 function love.keypressed(key)
     anyKeyPressed = anyKeyPressed + 1
     love.keyboard.keysPressed[key] = true
+
+    if key == "i" then
+        pushState(integration)
+    end
+
+    if key == "b" then
+        pushState(beta)
+    end
+
+    if key == "y" then
+        pushState(alpha)
+    end
 end
 
 function love.keyboard.wasPressed(key)

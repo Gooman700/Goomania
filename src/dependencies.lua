@@ -4,10 +4,6 @@ Class = require("libraries/class")
 push = require("libraries/push")
 json = require("libraries/json")
 
-require("src/states/tempStates/integration")
-require("src/states/tempStates/beta")
-require("src/states/tempStates/alpha")
-
 require("src/util")
 
 require("src/constants")--all constant values

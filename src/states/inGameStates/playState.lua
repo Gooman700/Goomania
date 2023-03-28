@@ -122,7 +122,7 @@ function playState:update(dt)
 
   if isMoving and (playerMap["interaction"][1+math.ceil((-tileOffsetY+playerY+1+100)/64)][1+math.ceil((-tileOffsetX+playerX+1)/64)] == 52 or playerMap["interaction"][1+math.ceil((-tileOffsetY+playerY+1+100)/64)][1+math.ceil((-tileOffsetX+playerX+60+1)/64)] == 52) then
     encounterRate = encounterRate + dt
-    if encounterRate > 0 then
+    if encounterRate > 2 then
       encounterRate = 0
       gSounds["fieldMusic"]:stop()
       gSounds["battleMusic"]:play()

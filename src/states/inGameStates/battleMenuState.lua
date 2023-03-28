@@ -1,7 +1,7 @@
 battleMenuState = {}
 
 local choice
-local text = {"Fight", "Switch", "Items", "Run"}
+local text = {"Fight", "Run"}
 
 function battleMenuState:enter()
     choice = 1
@@ -21,11 +21,11 @@ function battleMenuState:update(dt)
                 pushState(attackState, {wildGoomon, playerParty[1], "wild"})
             end
         elseif choice == 2 then
-            pushState(switchGoomonState)
+            pushState(fadeOutState, {playState, "b"})        
         elseif choice == 3 then
 
         elseif choice == 4 then
-            pushState(fadeOutState, {playState, "b"})
+            
         end
     end
 end
